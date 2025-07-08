@@ -1,1 +1,930 @@
-Japanese Language Institute of Poland
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Japanese Language Institute of Poland</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#BC002D', // 波兰红
+                        secondary: '#9D2932', // 深红色
+                        accent: '#F2C94C', // 日本传统金色
+                        neutral: '#F5F5F5', // 浅灰色背景
+                        dark: '#2D2D2D', // 深灰色文字
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['"Noto Serif JP"', 'serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            }
+            .bg-blur {
+                backdrop-filter: blur(8px);
+            }
+            .animate-float {
+                animation: float 6s ease-in-out infinite;
+            }
+            .animate-fade-in {
+                animation: fadeIn 0.8s ease-in forwards;
+            }
+            .section-padding {
+                padding-top: clamp(3rem, 8vh, 6rem);
+                padding-bottom: clamp(3rem, 8vh, 6rem);
+            }
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Noto+Serif+JP:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="font-sans text-dark bg-white">
+    <!-- 导航栏 -->
+    <header id="navbar" class="fixed w-full z-50 transition-all duration-300">
+        <nav class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <a href="#" class="flex items-center space-x-2">
+                <span class="text-primary text-2xl font-serif">日本語学院</span>
+                <span class="text-dark font-semibold">Poland</span>
+            </a>
+            
+            <!-- 桌面导航 -->
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#about" class="font-medium hover:text-primary transition-colors">About</a>
+                <a href="#courses" class="font-medium hover:text-primary transition-colors">Courses</a>
+                <a href="#features" class="font-medium hover:text-primary transition-colors">Features</a>
+                <a href="#online" class="font-medium hover:text-primary transition-colors">Online Classes</a>
+                <a href="#contact" class="font-medium hover:text-primary transition-colors">Contact</a>
+                <a href="#apply" class="bg-primary text-white px-6 py-2 rounded-full hover:bg-opacity-90 transition-all transform hover:scale-105">Apply Now</a>
+            </div>
+            
+            <!-- 移动端菜单按钮 -->
+            <button id="menu-toggle" class="md:hidden text-2xl">
+                <i class="fa fa-bars"></i>
+            </button>
+        </nav>
+        
+        <!-- 移动端导航菜单 -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-lg absolute w-full left-0 top-full transform -translate-y-full opacity-0 transition-all duration-300 pointer-events-none">
+            <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
+                <a href="#about" class="font-medium py-2 hover:text-primary transition-colors">About</a>
+                <a href="#courses" class="font-medium py-2 hover:text-primary transition-colors">Courses</a>
+                <a href="#features" class="font-medium py-2 hover:text-primary transition-colors">Features</a>
+                <a href="#online" class="font-medium py-2 hover:text-primary transition-colors">Online Classes</a>
+                <a href="#contact" class="font-medium py-2 hover:text-primary transition-colors">Contact</a>
+                <a href="#apply" class="bg-primary text-white px-6 py-3 rounded-full text-center hover:bg-opacity-90 transition-all">Apply Now</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 英雄区域 -->
+    <section class="relative h-screen flex items-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://picsum.photos/id/1036/1920/1080" alt="Japanese culture" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-r from-white/90 to-white/70"></div>
+        </div>
+        
+        <div class="container mx-auto px-4 z-10">
+            <div class="max-w-2xl">
+                <h1 class="text-[clamp(2.5rem,6vw,4rem)] font-bold leading-tight mb-4">
+                    Japanese Language Institute <br>
+                    <span class="text-primary">of Poland</span>
+                </h1>
+                <p class="text-lg md:text-xl mb-8 text-gray-700 max-w-xl">
+                    Discover the beauty of Japanese language and culture in the heart of Poland. 
+                    Professional courses for all levels.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <a href="#courses" class="bg-primary text-white px-8 py-3 rounded-full text-center font-medium hover:bg-opacity-90 transition-all transform hover:scale-105">
+                        Explore Courses
+                    </a>
+                    <a href="#online" class="border-2 border-primary text-primary px-8 py-3 rounded-full text-center font-medium hover:bg-primary hover:text-white transition-all">
+                        Online Classes
+                    </a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="absolute -bottom-10 -right-10 w-64 h-64 bg-accent/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 -left-20 w-40 h-40 bg-primary/10 rounded-full blur-3xl"></div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="section-padding bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">About Our Institute</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="order-2 md:order-1">
+                    <h3 class="text-2xl font-semibold mb-4">A Bridge Between Cultures</h3>
+                    <p class="mb-4 text-gray-700">
+                        Founded in 2010, the Japanese Language Institute of Poland is the leading center for Japanese language education in Poland. 
+                        Our mission is to promote Japanese language proficiency and cultural understanding between Poland and Japan.
+                    </p>
+                    <p class="mb-6 text-gray-700">
+                        With experienced native Japanese teachers and Polish educators specialized in Japanese language, we offer comprehensive 
+                        programs that combine linguistic skills with cultural immersion.
+                    </p>
+                    
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-start">
+                            <i class="fa fa-users text-primary text-xl mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">10+ Years</h4>
+                                <p class="text-sm text-gray-600">of experience</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-graduation-cap text-primary text-xl mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">5000+</h4>
+                                <p class="text-sm text-gray-600">graduates</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-language text-primary text-xl mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Native Teachers</h4>
+                                <p class="text-sm text-gray-600">from Japan</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start">
+                            <i class="fa fa-certificate text-primary text-xl mt-1 mr-3"></i>
+                            <div>
+                                <h4 class="font-semibold">Official Exams</h4>
+                                <p class="text-sm text-gray-600">JLPT preparation</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#contact" class="inline-flex items-center text-primary font-medium hover:underline">
+                        Learn more about us <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+                
+                <div class="order-1 md:order-2 relative">
+                    <img src="https://picsum.photos/id/1025/600/800" alt="Japanese class" class="rounded-lg shadow-xl w-full h-auto">
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-lg shadow-lg">
+                        <div class="flex items-center space-x-2">
+                            <i class="fa fa-map-marker text-primary text-xl"></i>
+                            <span class="font-medium">Warsaw & Krakow Campuses</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 课程介绍 -->
+    <section id="courses" class="section-padding">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">Our Courses</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-4">
+                    We offer a variety of courses tailored to different levels and objectives, from beginner to advanced,
+                    for personal, academic or professional purposes.
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 课程卡片 1 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/1019/600/400" alt="Beginner course" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full mb-4">
+                            Beginner (N5-N4)
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Basic Japanese Course</h3>
+                        <p class="text-gray-600 mb-4">
+                            Perfect for complete beginners. Learn essential vocabulary, basic grammar, and everyday conversations.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Introduction to hiragana and katakana</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Basic grammar structures</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Everyday conversations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>12 weeks • 3 times a week</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg">499 PLN</span>
+                            <a href="#apply" class="text-primary font-medium hover:underline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 课程卡片 2 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/1005/600/400" alt="Intermediate course" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full mb-4">
+                            Intermediate (N3-N2)
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Practical Japanese Course</h3>
+                        <p class="text-gray-600 mb-4">
+                            Develop your language skills for more complex conversations, reading and writing.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Advanced grammar patterns</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Reading newspapers and articles</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Writing essays and reports</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>16 weeks • 3 times a week</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg">699 PLN</span>
+                            <a href="#apply" class="text-primary font-medium hover:underline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 课程卡片 3 -->
+                <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-all duration-300 transform hover:-translate-y-2">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://picsum.photos/id/1070/600/400" alt="Business course" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-6">
+                        <div class="inline-block bg-primary/10 text-primary text-sm font-medium px-3 py-1 rounded-full mb-4">
+                            Professional (N2-N1)
+                        </div>
+                        <h3 class="text-xl font-bold mb-2">Business Japanese Course</h3>
+                        <p class="text-gray-600 mb-4">
+                            Specialized course for professionals needing Japanese for business environments.
+                        </p>
+                        <ul class="space-y-2 mb-6">
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Business vocabulary and etiquette</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Business meetings and negotiations</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>Business correspondence</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check text-primary mt-1 mr-2"></i>
+                                <span>14 weeks • 2 times a week</span>
+                            </li>
+                        </ul>
+                        <div class="flex justify-between items-center">
+                            <span class="font-bold text-lg">799 PLN</span>
+                            <a href="#apply" class="text-primary font-medium hover:underline">Apply Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+                <a href="#contact" class="inline-block border-2 border-primary text-primary px-8 py-3 rounded-full font-medium hover:bg-primary hover:text-white transition-all">
+                    View All Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学校特色 -->
+    <section id="features" class="section-padding bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">Why Choose Our Institute</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-4">
+                    Our institute stands out with unique features that provide the best environment for learning Japanese.
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 特色 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-user-circle text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Native Teachers</h3>
+                    <p class="text-gray-600">
+                        All our teachers are native Japanese speakers with professional teaching qualifications and experience.
+                    </p>
+                </div>
+                
+                <!-- 特色 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-certificate text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">JLPT Preparation</h3>
+                    <p class="text-gray-600">
+                        Specialized courses to prepare for the Japanese Language Proficiency Test (JLPT) at all levels.
+                    </p>
+                </div>
+                
+                <!-- 特色 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-users text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Small Classes</h3>
+                    <p class="text-gray-600">
+                        Maximum 8 students per class to ensure individual attention and practice opportunities.
+                    </p>
+                </div>
+                
+                <!-- 特色 4 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-map text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Cultural Activities</h3>
+                    <p class="text-gray-600">
+                        Regular cultural events, workshops and festivals to experience Japanese traditions firsthand.
+                    </p>
+                </div>
+                
+                <!-- 特色 5 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-exchange text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Exchange Programs</h3>
+                    <p class="text-gray-600">
+                        Opportunities for student exchange with partner institutions in Japan.
+                    </p>
+                </div>
+                
+                <!-- 特色 6 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-book text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Modern Materials</h3>
+                    <p class="text-gray-600">
+                        Up-to-date textbooks, digital resources and interactive learning tools.
+                    </p>
+                </div>
+                
+                <!-- 特色 7 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-building text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Two Campuses</h3>
+                    <p class="text-gray-600">
+                        Conveniently located in Warsaw and Krakow with modern facilities.
+                    </p>
+                </div>
+                
+                <!-- 特色 8 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="w-14 h-14 bg-primary/10 rounded-full flex items-center justify-center mb-5">
+                        <i class="fa fa-comments text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Language Partners</h3>
+                    <p class="text-gray-600">
+                        Program connecting students with native Japanese speakers for language practice.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 线上课程 -->
+    <section id="online" class="section-padding">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div class="relative">
+                    <img src="https://picsum.photos/id/1068/600/600" alt="Online Japanese class" class="rounded-lg shadow-xl w-full h-auto">
+                    <div class="absolute -top-5 -right-5 bg-primary text-white p-4 rounded-lg shadow-lg">
+                        <div class="text-center">
+                            <span class="block text-sm">Live Online</span>
+                            <span class="block text-2xl font-bold">24/7</span>
+                            <span class="block text-sm">Access</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div>
+                    <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-6">Online Japanese Courses</h2>
+                    <p class="text-gray-600 mb-6">
+                        Our interactive online courses allow you to learn Japanese from anywhere in Poland or around the world,
+                        with the same quality education as our on-campus programs.
+                    </p>
+                    
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Live Interactive Classes</h4>
+                                <p class="text-gray-600">Real-time lessons with native teachers and classmates</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Flexible Schedule</h4>
+                                <p class="text-gray-600">Multiple time slots to fit your daily routine</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Recorded Lessons</h4>
+                                <p class="text-gray-600">Access to class recordings for review and practice</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Digital Learning Materials</h4>
+                                <p class="text-gray-600">Interactive exercises, vocabulary tools and more</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="mt-1 mr-4 w-6 h-6 rounded-full bg-primary flex items-center justify-center flex-shrink-0">
+                                <i class="fa fa-check text-white text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-semibold mb-1">Virtual Cultural Activities</h4>
+                                <p class="text-gray-600">Online workshops and events to experience Japanese culture</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <a href="#apply" class="inline-block bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-opacity-90 transition-all transform hover:scale-105">
+                        Sign Up for Online Classes
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 学生评价 -->
+    <section class="section-padding bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">What Our Students Say</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-4">
+                    Hear from our students about their experience learning Japanese at our institute.
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 评价 1 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="flex items-center mb-4">
+                        <img src="https://picsum.photos/id/1027/100/100" alt="Student" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Anna Kowalska</h4>
+                            <div class="flex text-accent">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "The teachers are amazing! They make learning Japanese fun and engaging. After 6 months, I can have simple conversations and read basic texts. The cultural workshops are a great bonus."
+                    </p>
+                    <div class="text-sm text-gray-500">Completed Intermediate Course</div>
+                </div>
+                
+                <!-- 评价 2 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="flex items-center mb-4">
+                        <img src="https://picsum.photos/id/1012/100/100" alt="Student" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Piotr Nowak</h4>
+                            <div class="flex text-accent">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "I joined the Business Japanese course to improve my language skills for work. The course content was perfectly tailored to professional needs. Now I feel confident communicating with our Japanese partners."
+                    </p>
+                    <div class="text-sm text-gray-500">Completed Business Course</div>
+                </div>
+                
+                <!-- 评价 3 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <div class="flex items-center mb-4">
+                        <img src="https://picsum.photos/id/1062/100/100" alt="Student" class="w-12 h-12 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold">Katarzyna Zielińska</h4>
+                            <div class="flex text-accent">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 mb-4">
+                        "The online classes are just as effective as in-person lessons. The platform is easy to use, and I love that I can review the recordings. The small class size ensures everyone gets enough speaking practice."
+                    </p>
+                    <div class="text-sm text-gray-500">Taking Online Beginner Course</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 申请区域 -->
+    <section id="apply" class="section-padding">
+        <div class="container mx-auto px-4">
+            <div class="bg-primary rounded-2xl overflow-hidden shadow-xl">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-8 md:p-12">
+                        <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-6 text-white">Apply for Our Courses</h2>
+                        <p class="text-white/90 mb-8">
+                            Ready to start your Japanese language journey? Fill out the application form and our team will contact you shortly.
+                        </p>
+                        
+                        <form class="space-y-4">
+                            <div>
+                                <label for="name" class="block text-white mb-2">Full Name</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white" placeholder="Your name">
+                            </div>
+                            
+                            <div>
+                                <label for="email" class="block text-white mb-2">Email Address</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white" placeholder="Your email">
+                            </div>
+                            
+                            <div>
+                                <label for="course" class="block text-white mb-2">Interested Course</label>
+                                <select id="course" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white">
+                                    <option value="">Select a course</option>
+                                    <option value="beginner">Beginner Course (N5-N4)</option>
+                                    <option value="intermediate">Intermediate Course (N3-N2)</option>
+                                    <option value="business">Business Japanese Course</option>
+                                    <option value="online">Online Course</option>
+                                </select>
+                            </div>
+                            
+                            <div>
+                                <label for="message" class="block text-white mb-2">Message (Optional)</label>
+                                <textarea id="message" rows="3" class="w-full px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white" placeholder="Any questions or special requests"></textarea>
+                            </div>
+                            
+                            <button type="submit" class="w-full bg-white text-primary font-medium py-3 px-6 rounded-lg hover:bg-opacity-90 transition-all transform hover:scale-[1.02]">
+                                Submit Application
+                            </button>
+                        </form>
+                    </div>
+                    
+                    <div class="hidden md:block relative">
+                        <img src="https://picsum.photos/id/1037/800/1000" alt="Japanese culture" class="absolute inset-0 w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 联系信息 -->
+    <section id="contact" class="section-padding bg-neutral">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,4vw,2.5rem)] font-bold mb-4">Contact Us</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto mb-4">
+                    Have questions? Feel free to contact us through any of the channels below. We're happy to help!
+                </p>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 华沙校区 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <h3 class="text-xl font-semibold mb-4">Warsaw Campus</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fa fa-map-marker text-primary text-xl mt-1 mr-4"></i>
+                            <span class="text-gray-600">ul. Japanese 12, 00-001 Warsaw, Poland</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fa fa-phone text-primary text-xl mt-1 mr-4"></i>
+                            <span class="text-gray-600">+48 22 123 4567</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fa fa-envelope text-primary text-xl mt-1 mr-4"></i>
+                            <span class="text-gray-600">warsaw@jlip.pl</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fa fa-clock-o text-primary text-xl mt-1 mr-4"></i>
+                            <div class="text-gray-600">
+                                <p>Monday - Friday: 9:00 - 18:00</p>
+                                <p>Saturday: 10:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 克拉科夫校区 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <h3 class="text-xl font-semibold mb-4">Krakow Campus</h3>
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <i class="fa fa-map-marker text-primary text-xl mt-1 mr-4"></i>
+                            <span class="text-gray-600">ul. Sakura 8, 30-001 Krakow, Poland</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fa fa-phone text-primary text-xl mt-1 mr-4"></i>
+                            <span class="text-gray-600">+48 12 765 4321</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fa fa-envelope text-primary text-xl mt-1 mr-4"></i>
+                            <span class="text-gray-600">krakow@jlip.pl</span>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <i class="fa fa-clock-o text-primary text-xl mt-1 mr-4"></i>
+                            <div class="text-gray-600">
+                                <p>Monday - Friday: 9:00 - 18:00</p>
+                                <p>Saturday: 10:00 - 14:00</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 社交媒体 -->
+                <div class="bg-white p-6 rounded-xl shadow-md hover:shadow-lg transition-all">
+                    <h3 class="text-xl font-semibold mb-4">Follow Us</h3>
+                    <p class="text-gray-600 mb-4">
+                        Stay updated with our latest news, events and language tips.
+                    </p>
+                    
+                    <div class="flex space-x-4 mb-6">
+                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center text-primary hover:bg-primary hover:text-white transition-all">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                    
+                    <h4 class="font-semibold mb-3">Newsletter</h4>
+                    <p class="text-gray-600 mb-4">Subscribe to our newsletter for updates.</p>
+                    
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="flex-1 px-4 py-2 rounded-l-lg focus:outline-none">
+                        <button type="submit" class="bg-primary text-white px-4 py-2 rounded-r-lg hover:bg-opacity-90 transition-all">
+                            <i class="fa fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-8">
+                <div>
+                    <a href="#" class="flex items-center space-x-2 mb-4">
+                        <span class="text-white text-2xl font-serif">日本語学院</span>
+                        <span class="text-gray-400 font-semibold">Poland</span>
+                    </a>
+                    <p class="text-gray-400 mb-4">
+                        Promoting Japanese language education and cultural exchange between Poland and Japan since 2010.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-twitter"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#about" class="text-gray-400 hover:text-white transition-colors">About Us</a></li>
+                        <li><a href="#courses" class="text-gray-400 hover:text-white transition-colors">Courses</a></li>
+                        <li><a href="#features" class="text-gray-400 hover:text-white transition-colors">Our Features</a></li>
+                        <li><a href="#online" class="text-gray-400 hover:text-white transition-colors">Online Classes</a></li>
+                        <li><a href="#contact" class="text-gray-400 hover:text-white transition-colors">Contact</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Courses</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Beginner Course (N5-N4)</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Intermediate Course (N3-N2)</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Business Japanese</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">JLPT Preparation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition-colors">Online Courses</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="text-lg font-semibold mb-4">Contact</h4>
+                    <ul class="space-y-2">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">Warsaw & Krakow, Poland</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-phone text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">+48 22 123 4567</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-envelope text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">info@jlip.pl</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8 text-center text-gray-500">
+                <p>&copy; 2023 Japanese Language Institute of Poland. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- 返回顶部按钮 -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 bg-primary text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg opacity-0 invisible transition-all duration-300 hover:bg-opacity-90">
+        <i class="fa fa-arrow-up"></i>
+    </button>
+
+    <!-- JavaScript -->
+    <script>
+        // 导航栏滚动效果
+        const navbar = document.getElementById('navbar');
+        const backToTop = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.classList.add('bg-white', 'shadow-md');
+                navbar.classList.remove('py-4');
+                navbar.classList.add('py-2');
+                
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                navbar.classList.remove('bg-white', 'shadow-md');
+                navbar.classList.remove('py-2');
+                navbar.classList.add('py-4');
+                
+                backToTop.classList.add('opacity-0', 'invisible');
+                backToTop.classList.remove('opacity-100', 'visible');
+            }
+        });
+        
+        // 移动端菜单
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', function() {
+            if (mobileMenu.classList.contains('opacity-0')) {
+                mobileMenu.classList.remove('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.add('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                menuToggle.innerHTML = '<i class="fa fa-times"></i>';
+            } else {
+                mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // 关闭移动端菜单（如果打开）
+                if (!mobileMenu.classList.contains('opacity-0')) {
+                    mobileMenu.classList.add('-translate-y-full', 'opacity-0', 'pointer-events-none');
+                    mobileMenu.classList.remove('translate-y-0', 'opacity-100', 'pointer-events-auto');
+                    menuToggle.innerHTML = '<i class="fa fa-bars"></i>';
+                }
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 返回顶部
+        backToTop.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // 滚动动画
+        const animateOnScroll = function() {
+            const elements = document.querySelectorAll('section');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                
+                if (elementPosition < windowHeight * 0.85) {
+                    element.classList.add('animate-fade-in');
+                }
+            });
+        };
+        
+        // 初始加载时检查
+        window.addEventListener('load', animateOnScroll);
+        // 滚动时检查
+        window.addEventListener('scroll', animateOnScroll);
+    </script>
+</body>
+</html>
